@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>OMDB</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <link rel="stylesheet" href="./styles/style.css" />
+  </head>
+  <body>
+    <nav>
+      <h1 class="brand">Movie searcher</h1>
+      <div class="nav-left">
+        <form id="x">
+          <input type="submit" value="x" id="" />
+          <input type="text" id="searcher" placeholder="Search" />
+        </form>
+      </div>
+    </nav>
+    <hr />
+    <div id="container">
+      <img src="" title="Poster" width="200px" id="poster" />
+      <div id="info">
+        <h1 class="title">Title: <span id="title"></span></h1>
+        <h3>Genre: <span id="genre"></span></h3>
+        <h3>Director: <span id="director"></span></h3>
+        <h3>Actor: <span id="actors"></span></h3>
+        <h3>Runtime: <span id="runtime"></span></h3>
+      </div>
+    </div>
+    <script src="./js/main.dev.js"></script>
+  </body>
+</html>

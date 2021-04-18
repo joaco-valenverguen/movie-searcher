@@ -1,0 +1,36 @@
+body {
+  background: #181818;
+  color: #ffffff;
+  font-family: "Quicksand", sans-serif;
+  padding: 0 1.5em;
+}
+nav {
+  font-size: 12px;
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  justify-content: space-between;
+  align-items: center;
+  height: 60px;
+  padding: 20px 0;
+}
+.nav-left {
+  align-items: left;
+  justify-items: left;
+  justify-content: left;
+}
+.brand {
+  text-align: left;
+  font-size: 3em;
+}
+#container {
+  font-size: small;
+  margin: 10px;
+}
+
+#poster {
+  float: left;
+  margin-right: 10px;
+}
+#info {
+  margin: 5px;
+}
