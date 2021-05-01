@@ -17,10 +17,11 @@ a.addEventListener("submit", (e) => {
 });
 console.log(x);
 const get = async () => {
-  const { data } = await axios.get(
+  const res = await fetch(
     /*"http://www.omdbapi.com/?t=avengers&apikey=b6b117d4"*/
     `http://www.omdbapi.com/?t=${x}&apikey=b6b117d4`
   );
+  const data = await res.json();
   title.innerHTML = data.Title;
   genre.innerHTML = data.Genre;
   director.innerHTML = data.Director;
