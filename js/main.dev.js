@@ -19,7 +19,7 @@ console.log(x);
 const get = async () => {
   const res = await fetch(
     /*"http://www.omdbapi.com/?t=avengers&apikey=b6b117d4"*/
-    `http://www.omdbapi.com/?t=${x}&apikey=b6b117d4`
+    `https://www.omdbapi.com/?t=${x}&apikey=b6b117d4`
   );
   const data = await res.json();
   title.innerHTML = data.Title;
