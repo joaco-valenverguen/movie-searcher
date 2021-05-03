@@ -26,11 +26,20 @@ nav {
   font-size: small;
   margin: 10px;
 }
-
-#poster {
-  float: left;
-  margin-right: 10px;
+.content {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
 }
-#info {
-  margin: 5px;
+.card {
+  display: block;
+  padding: 1em;
+  width: 200px;
+  text-align: center;
+}
+.card {
+  cursor: pointer;
+}
+.poster {
+  width: 200px;
+  height: 300px;
 }
