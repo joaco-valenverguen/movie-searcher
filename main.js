@@ -3,7 +3,9 @@ const movier = document.querySelector(".movie-content");
 const series = document.querySelector(".serie-content");
 let cards;
 const get = async () => {
-  const req = await fetch("http://www.omdbapi.com/?s=avengers&apikey=b6b117d4");
+  const req = await fetch(
+    "https://www.omdbapi.com/?s=avengers&apikey=b6b117d4"
+  );
   const res = await req.json();
   const data = res.Search;
   console.log(data);
