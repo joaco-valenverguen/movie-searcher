@@ -1,14 +1,10 @@
-const container = document.getElementById("container");
-const movier = document.querySelector(".movie-content");
-const series = document.querySelector(".serie-content");
-let cards;
-const geti = async () => {
+const geti = async (x) => {
   const req = await fetch(
-    "https://www.omdbapi.com/?s=avengers&apikey=b6b117d4"
+    `https://www.omdbapi.com/?s=${x}&page=${page}&apikey=b6b117d4`
   );
   const res = await req.json();
   const data = res.Search;
-  console.log(data);
+  console.log(res);
   if (res.Response.toLowerCase() === "true") {
     for (c = 0; c < data.length; c++) {
       let movies = new Movie(data[c]);
@@ -16,7 +12,10 @@ const geti = async () => {
     }
   }
 };
-geti();
+for (page; page <= 2; page++) {
+  geti("movie");
+  geti("series");
+}
 
 class Movie {
   constructor(res) {
