@@ -2,7 +2,7 @@ const container = document.getElementById("container");
 const movier = document.querySelector(".movie-content");
 const series = document.querySelector(".serie-content");
 let cards;
-const get = async () => {
+const geti = async () => {
   const req = await fetch(
     "https://www.omdbapi.com/?s=avengers&apikey=b6b117d4"
   );
@@ -16,7 +16,7 @@ const get = async () => {
     }
   }
 };
-get();
+geti();
 
 class Movie {
   constructor(res) {
@@ -49,6 +49,9 @@ class Movie {
     const div = document.createElement("div");
     div.classList.add("card");
     div.id = `${this.imdbid}`;
+    div.addEventListener("click", () => {
+      get(div.id);
+    });
     div.innerHTML = `<img class='poster' src = '${this.poster}' title="Poster"  id="poster"  />
     <div id="info"></div>
       <h3 class="title"><span id="title">${this.title}</span></h3>
@@ -60,15 +63,19 @@ class Movie {
         return series.appendChild(div);
     }
   }
+  printAlone() {
+    const div = document.createElement("div");
+    div.classList.add("card");
+    div.id = `${this.imdbid}`;
+  }
 }
-async function xd() {
-  setTimeout(() => {
-    x = document.getElementsByClassName("card");
-    cards = [];
-    for (c = 0; c < x.length; c++) {
-      cards.push(x[c]);
-    }
-  }, 450);
-}
-xd();
-setTimeout(() => {}, 1000);
+const get = async function (id) {
+  const req = await fetch(`http://www.omdbapi.com/?i=${id}&apikey=b6b117d4`);
+  const res = await req.json();
+  console.log(res);
+  movier.innerHTML = "";
+  series.innerHTML = "";
+  let xd = new Movie(res);
+  xd.print("movie");
+  return res;
+};
