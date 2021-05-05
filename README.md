@@ -1,6 +1,6 @@
 # movie-searcher
 
-Movie searcher that displays basic info about movies
+Movie page, this is in procces
 
 ---
 
