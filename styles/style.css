@@ -78,3 +78,14 @@ nav {
   grid-column: 2/7;
   margin: -4px 3px;
 }
+.more {
+  grid-column: 1/-1;
+  text-align: center;
+  cursor: pointer;
+  border: 1px solid #fff;
+  background-color: #2d2d30;
+  margin-top: 1em;
+}
+.more:hover {
+  background-color: #4e4e50;
+}
