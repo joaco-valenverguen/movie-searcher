@@ -1,20 +1,31 @@
-const geti = async (x) => {
-  const req = await fetch(
-    `https://www.omdbapi.com/?s=${x}&page=${page}&apikey=b6b117d4`
-  );
+const search = async (x, s) => {
+  let req = `https://www.omdbapi.com/?s=${x}&page=${pagi}&apikey=b6b117d4`;
+  if (x == "movie") {
+    req = await fetch(
+      `https://www.omdbapi.com/?s=${x}&page=${pagem}&apikey=b6b117d4`
+    );
+  } else if (x == "series") {
+    req = await fetch(
+      `https://www.omdbapi.com/?s=${x}&page=${pages}&apikey=b6b117d4`
+    );
+  }
   const res = await req.json();
   const data = res.Search;
   console.log(res);
-  if (res.Response.toLowerCase() === "true") {
-    for (c = 0; c < data.length; c++) {
-      let movies = new Movie(data[c]);
-      movies.print(movies.type);
+  if (!s) {
+    if (res.Response.toLowerCase() === "true") {
+      for (c = 0; c < data.length; c++) {
+        let movies = new Movie(data[c]);
+        movies.print(movies.type);
+      }
     }
+  } else {
+    return data;
   }
 };
-for (page; page <= 2; page++) {
-  geti("movie");
-  geti("series");
+for (pagi; pagi <= 2; pagi++) {
+  search("movie");
+  search("series");
 }
 
 class Movie {
@@ -45,21 +56,25 @@ class Movie {
     this.response = res.Response;
   }
   print(x) {
-    const div = document.createElement("div");
-    div.classList.add("card");
-    div.id = `${this.imdbid}`;
-    div.addEventListener("click", () => {
-      get(div.id);
-    });
-    div.innerHTML = `<img class='poster' src = '${this.poster}' title="Poster"  id="poster"  />
+    if (!ids.includes(this.imdbid)) {
+      ids.push(this.imdbid);
+      const div = document.createElement("div");
+      div.classList.add("card");
+      div.id = `${this.imdbid}`;
+      div.addEventListener("click", () => {
+        get(div.id);
+      });
+      div.innerHTML = `<img class='poster' src = '${this.poster}' title="Poster"  id="poster"  />
     <div id="info"></div>
-      <h3 class="title"><span id="title">${this.title}</span></h3>
+    <h3 class="title"><span id="title">${this.title}</span></h3>
     </div>`;
-    switch (x) {
-      case "movie":
-        return movier.appendChild(div);
-      case "series":
-        return series.appendChild(div);
+      switch (x) {
+        case "movie":
+          ids.push(this.imdbid);
+          return moviecontent.appendChild(div);
+        case "series":
+          return seriescontent.appendChild(div);
+      }
     }
   }
   printAlone() {
@@ -78,3 +93,6 @@ const get = async function (id) {
   xd.print("movie");
   return res;
 };
+
+printwmore(movier);
+printwmore(series);

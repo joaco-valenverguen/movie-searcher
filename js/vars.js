@@ -1,6 +1,12 @@
 const container = document.getElementById("container");
-const movier = document.querySelector(".movie-content");
-const series = document.querySelector(".serie-content");
+const movier = document.querySelector(".movies");
+const series = document.querySelector(".series");
+const moviecontent = document.querySelector("#movie");
+const seriescontent = document.querySelector("#serie");
+const content = document.querySelectorAll(".content");
+let pagi = 1;
 let cards;
 var url;
-let page = 1;
+let pagem = 1;
+let pages = 1;
+let ids = [];

@@ -1,10 +1,7 @@
-const container = document.getElementById("container");
-const movier = document.querySelector(".movie-content");
-const series = document.querySelector(".serie-content");
-let cards;
-
 async function get() {
-  const req = await fetch("http://www.omdbapi.com/?t=avengers&apikey=b6b117d4");
+  const req = await fetch(
+    "https://www.omdbapi.com/?t=avengers&apikey=b6b117d4"
+  );
   const res = await req.json();
   console.log(res);
   const div = document.createElement("div");
